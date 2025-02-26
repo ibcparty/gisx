@@ -124,9 +124,13 @@ section {
     visibility: hidden;
     opacity: 0;
     overflow: hidden;
+    transition: opacity 0.5s ease; /* Add smooth transition */
 }
 
 section.active {
+    visibility: visible;
+    opacity: 1;
+    overflow: auto;
     animation: show-content 1.5s linear forwards;
     animation-delay: 1.6s;
 }

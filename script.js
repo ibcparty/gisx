@@ -43,6 +43,8 @@ menuIcon.addEventListener('click', () => {
     menuIcon.classList.toggle('bx-x');
     navbar.classList.toggle('active');
 });
+
+// Modify your activePage function to handle all sections
 const activePage = (targetSection) => {
     const header = document.querySelector('header');
     const barsBox = document.querySelector('.bars-box');
@@ -50,17 +52,20 @@ const activePage = (targetSection) => {
     // Reset all
     header.classList.remove('active');
     barsBox.classList.remove('active');
-    sections.forEach(section => section.classList.remove('active'));
-    navLinks.forEach(link => link.classList.remove('active'));
-    menuIcon.classList.remove('bx-x');
-    navbar.classList.remove('active');
-    // Reactivate with delay
+    sections.forEach(section => {
+        section.classList.remove('active');
+        section.style.display = 'none'; // Add this line
+    });
+    
+    // Activate target section
     setTimeout(() => {
         header.classList.add('active');
         barsBox.classList.add('active');
         targetSection.classList.add('active');
+        targetSection.style.display = 'block'; // Add this line
     }, 1100);
 }
+
 // Navigation Links
 navLinks.forEach(link => {
     link.addEventListener('click', (e) => {
